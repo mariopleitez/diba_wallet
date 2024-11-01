@@ -6,6 +6,8 @@ from .models import Wallet, Transaction
 from .serializers import WalletSerializer
 import decimal
 
+from .serializers import TransactionSerializer
+
 from django.shortcuts import render
 
 def api_overview(request):
@@ -127,3 +129,19 @@ def get_wallet_details(request):
         "owner": wallet.owner,
         "balance": wallet.balance
     }, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def get_wallet_transaction_history(request):
+    """
+    Retrieve the transaction history of a wallet using the private key for authentication.
+    """
+    private_key = request.data.get("private_key")
+    wallet = get_object_or_404(Wallet, private_key=private_key)
+
+    # Retrieve transactions where this wallet is either the sender or receiver
+    transactions = Transaction.objects.filter(wallet=wallet)
+
+    # Serialize the transactions
+    serializer = TransactionSerializer(transactions, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
