@@ -1,1 +1,1 @@
-web: gunicorn diba_wallet.wsgi --log-file - 
+web: python manage.py migrate && gunicorn <project_name>.wsgi
