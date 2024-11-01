@@ -27,7 +27,11 @@ SECRET_KEY = "django-insecure-ppdo2u)2g+66c^btho3@$1l5#x6)ea9skha()sp()l-iv36%46
 DEBUG = False
 
 
-ALLOWED_HOST=['*','dibawallet-production.up.railway.app']
+ALLOWED_HOSTS = [
+    '*',
+    '127.0.0.1',
+    'localhost',
+    'dibawallet-production.up.railway.app']
 
 
 # Application definition
