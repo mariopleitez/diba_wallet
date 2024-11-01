@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Overview - Wallet Application</title>
+</head>
+<body>
+    <h1>Wallet API Overview</h1>
+    <p>This page provides a brief overview of the available API endpoints for the Wallet Application.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+        <li><strong>Create Wallet:</strong> <code>POST /api/wallets/</code><br>
+            Creates a new wallet for a user.
+        </li>
+        <li><strong>Create Transaction:</strong> <code>POST /api/wallets/&lt;wallet_id&gt;/create-transaction/</code><br>
+            Initiates a pending transaction for credit, debit, or transfer.
+        </li>
+        <li><strong>Create Transfer Transaction:</strong> <code>POST /api/wallets/transfer/create/</code><br>
+            Creates a pending transfer transaction between two wallets.
+        </li>
+        <li><strong>Process Transaction:</strong> <code>POST /api/transactions/&lt;transaction_id&gt;/process/</code><br>
+            Confirms and finalizes a pending transaction, updating wallet balances.
+        </li>
+        <li><strong>Check Wallet Balance:</strong> <code>POST /api/wallets/balance/</code><br>
+            Retrieves the balance of a wallet using the private key for authentication.
+        </li>
+    </ul>
+
+    <h3>Instructions</h3>
+    <p>Each endpoint requires specific parameters in JSON format. Refer to each method's documentation for details.</p>
+</body>
+</html>

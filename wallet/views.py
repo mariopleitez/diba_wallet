@@ -6,6 +6,15 @@ from .models import Wallet, Transaction
 from .serializers import WalletSerializer
 import decimal
 
+from django.shortcuts import render
+
+def api_overview(request):
+    """
+    Renders a page listing all available API methods and descriptions.
+    """
+    return render(request, 'wallet/api_overview.html')
+
+
 @api_view(['POST'])
 def create_wallet(request):
     owner = request.data.get("owner")
