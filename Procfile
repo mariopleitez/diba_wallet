@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn diba_wallet.wsgi
+python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mysite.wsgi
