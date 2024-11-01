@@ -113,3 +113,17 @@ def check_balance(request):
     wallet = get_object_or_404(Wallet, private_key=private_key)
     
     return Response({"balance": wallet.balance})
+
+@api_view(['POST'])
+def get_wallet_details(request):
+    """
+    Retrieve the public key, owner's name, and balance using the private key for authentication.
+    """
+    private_key = request.data.get("private_key")
+    wallet = get_object_or_404(Wallet, private_key=private_key)
+
+    return Response({
+        "public_key": wallet.public_key,
+        "owner": wallet.owner,
+        "balance": wallet.balance
+    }, status=status.HTTP_200_OK)

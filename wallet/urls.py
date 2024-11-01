@@ -7,5 +7,6 @@ urlpatterns = [
     path('wallets/<int:pk>/create-transaction/', views.create_transaction, name='create_transaction'),
     path('wallets/transfer/create/', views.create_transfer_transaction, name='create_transfer_transaction'),
     path('transactions/<int:transaction_id>/process/', views.process_transaction, name='process_transaction'),
-    path('wallets/balance/', views.check_balance, name='check_balance'),
+    path('wallet/check_balance/', views.check_balance, name='check_balance'),
+    path('wallet/details/', views.get_wallet_details, name='get_wallet_details'),
 ]
